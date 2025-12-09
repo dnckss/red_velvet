@@ -14,8 +14,8 @@ export default function Article() {
   const [direction, setDirection] = useState(1); // 1: 앞으로, -1: 뒤로
 
   const banners = [
-    '/레드벨벳_배너1.svg',
-    '/레드벨벳_배너2.svg',
+    '/banner/레드벨벳_배너1.svg',
+    '/banner/레드벨벳_배너2.svg',
   ];
 
   useEffect(() => {
