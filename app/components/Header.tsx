@@ -5,11 +5,13 @@ import { COLORS } from '../constants/colors';
 import { DESIGN } from '../constants/design';
 import { NAVIGATION_MENU, MenuItem } from '../constants/menu';
 import LoginModal from './LoginModal';
+import SignupModal from './SignupModal';
 
 export default function Header() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
 
   return (
     <header 
@@ -39,8 +41,8 @@ export default function Header() {
             >
               로그인
             </button>
-            <a 
-              href="/signup" 
+            <button
+              onClick={() => setIsSignupModalOpen(true)}
               className="text-sm font-medium transition-colors hover:opacity-80"
               style={{ 
                 color: COLORS.TEXT_SECONDARY,
@@ -48,7 +50,7 @@ export default function Header() {
               }}
             >
               회원가입
-            </a>
+            </button>
           </nav>
         </div>
       </div>
@@ -188,7 +190,17 @@ export default function Header() {
       {/* Login Modal */}
       <LoginModal 
         isOpen={isLoginModalOpen} 
-        onClose={() => setIsLoginModalOpen(false)} 
+        onClose={() => setIsLoginModalOpen(false)}
+        onOpenSignup={() => {
+          setIsLoginModalOpen(false);
+          setIsSignupModalOpen(true);
+        }}
+      />
+
+      {/* Signup Modal */}
+      <SignupModal 
+        isOpen={isSignupModalOpen} 
+        onClose={() => setIsSignupModalOpen(false)} 
       />
     </header>
   );

@@ -8,9 +8,10 @@ import { DESIGN } from '../constants/design';
 interface LoginModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenSignup?: () => void;
 }
 
-export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
+export default function LoginModal({ isOpen, onClose, onOpenSignup }: LoginModalProps) {
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -64,22 +65,23 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
         >
           {/* Header */}
           <div
-            className="flex items-center justify-between px-6 py-4"
+            className="flex items-center justify-between px-6 py-4 border-b"
             style={{
-              backgroundColor: COLORS.PRIMARY,
+              backgroundColor: COLORS.BG_WHITE,
+              borderColor: COLORS.BORDER_LIGHT,
             }}
           >
             <h2
               className="text-xl font-bold"
-              style={{ color: COLORS.TEXT_WHITE }}
+              style={{ color: COLORS.PRIMARY }}
             >
               로그인
             </h2>
             <button
               onClick={onClose}
-              className="w-8 h-8 flex items-center justify-center rounded-lg transition-all hover:bg-white/20"
+              className="w-8 h-8 flex items-center justify-center rounded-lg transition-all hover:bg-gray-100"
               style={{
-                color: COLORS.TEXT_WHITE,
+                color: COLORS.TEXT_SECONDARY,
                 transition: DESIGN.TRANSITION_FAST,
               }}
               aria-label="닫기"
@@ -249,8 +251,8 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 비밀번호 재설정
               </Link>
               <span style={{ color: COLORS.BORDER_MEDIUM }}>|</span>
-              <Link
-                href="/signup"
+              <button
+                type="button"
                 className="text-sm font-medium transition-colors"
                 style={{
                   color: COLORS.TEXT_SECONDARY,
@@ -262,10 +264,15 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = COLORS.TEXT_SECONDARY;
                 }}
-                onClick={onClose}
+                onClick={() => {
+                  onClose();
+                  if (onOpenSignup) {
+                    onOpenSignup();
+                  }
+                }}
               >
                 회원가입
-              </Link>
+              </button>
             </div>
           </div>
         </div>
