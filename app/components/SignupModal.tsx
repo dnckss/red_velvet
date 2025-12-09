@@ -332,7 +332,7 @@ export default function SignupModal({ isOpen, onClose }: SignupModalProps) {
               </div>
 
               {/* 휴대폰 번호 */}
-              <div className="grid grid-cols-[1fr_auto] gap-2 items-end">
+              {/* <div className="grid grid-cols-[1fr_auto] gap-2 items-end">
                 <div>
                   <label className="block text-sm font-semibold mb-1.5" style={{ color: COLORS.TEXT_PRIMARY }}>
                     *휴대폰 번호(-없이)
@@ -379,7 +379,7 @@ export default function SignupModal({ isOpen, onClose }: SignupModalProps) {
                 >
                   인증번호발송
                 </button>
-              </div>
+              </div> */}
 
               {/* 은행명 */}
               <div>

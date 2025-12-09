@@ -108,12 +108,13 @@ export default function Header() {
                   {/* 드롭다운 메뉴 */}
                   {isHovered && menu.children && (
                     <div
-                      className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border overflow-hidden"
+                      className="absolute top-full left-0 bg-white rounded-lg shadow-lg border overflow-hidden"
                       style={{
                         boxShadow: COLORS.SHADOW_LG,
                         borderColor: COLORS.BORDER_LIGHT,
                         minWidth: '200px',
                         zIndex: 1000,
+                        marginTop: '2px', // 작은 간격으로 메뉴 바로 아래에 배치
                       }}
                       onMouseEnter={() => setHoveredMenu(menu.label)}
                       onMouseLeave={() => setHoveredMenu(null)}
