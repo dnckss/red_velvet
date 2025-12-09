@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { COLORS } from '../../constants/colors';
@@ -88,16 +89,18 @@ const TOTO_GAMES = [
   },
 ];
 
-const getSportIconColor = (sport: string) => {
+const getSportIcon = (sport: string) => {
   switch (sport) {
     case '축구':
-      return '#10B981'; // Green
+      return '/sport/Football.svg';
     case '농구':
-      return '#3B82F6'; // Blue
+      return '/sport/Basketball.svg';
+    case '야구':
+      return '/sport/Baseball.svg';
     case '배구':
-      return '#F59E0B'; // Orange
+      return '/sport/Volleyball.svg'; // 배구 아이콘이 없으면 기본값 사용
     default:
-      return COLORS.PRIMARY;
+      return null;
   }
 };
 
@@ -376,12 +379,22 @@ export default function AvailableGamesPage() {
                     >
                       <td className="px-4 py-4">
                         <div className="flex items-center gap-2">
-                          <div
-                            className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-semibold text-white"
-                            style={{ backgroundColor: getSportIconColor(game.sport) }}
-                          >
-                            {game.sport === '축구' ? '축' : game.sport === '농구' ? '농' : '배'}
-                          </div>
+                          {getSportIcon(game.sport) ? (
+                            <Image
+                              src={getSportIcon(game.sport)!}
+                              alt={game.sport}
+                              width={24}
+                              height={24}
+                              className="w-6 h-6"
+                            />
+                          ) : (
+                            <div
+                              className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-semibold text-white"
+                              style={{ backgroundColor: COLORS.PRIMARY }}
+                            >
+                              {game.sport.charAt(0)}
+                            </div>
+                          )}
                           <span
                             className="text-sm font-medium"
                             style={{ color: COLORS.TEXT_PRIMARY }}

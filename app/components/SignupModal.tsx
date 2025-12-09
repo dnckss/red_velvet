@@ -451,7 +451,7 @@ export default function SignupModal({ isOpen, onClose }: SignupModalProps) {
                 <input
                   type="text"
                   value={formData.accountHolder}
-                  onChange={(e) => handleChange('accountHolder', e.target.value.replace(/[^가-힣]/g, ''))}
+                  onChange={(e) => handleChange('accountHolder', e.target.value)}
                   className="w-full px-3 py-2 rounded-lg border transition-all focus:outline-none focus:ring-2"
                   style={{
                     borderColor: COLORS.BORDER_LIGHT,
