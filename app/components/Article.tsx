@@ -596,6 +596,27 @@ export default function Article() {
               </div>
             </div>
 
+            {/* Guide Banner */}
+            <a
+              href="https://www.sportstoto.co.kr/guide.php"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-xl bg-white overflow-hidden transition-all hover:shadow-lg"
+              style={{ 
+                boxShadow: COLORS.SHADOW_MD,
+                border: `1px solid ${COLORS.BORDER_LIGHT}`,
+                transition: DESIGN.TRANSITION_FAST,
+              }}
+            >
+              <Image
+                src="/가이드.svg"
+                alt="토토가이드"
+                width={810}
+                height={80}
+                className="w-full h-full object-cover"
+              />
+            </a>
+
             {/* Notice Section */}
             <div 
               className="rounded-xl bg-white overflow-hidden"
