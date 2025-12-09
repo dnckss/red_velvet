@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "베트맨 - 스포츠토토",
+  title: "Redvelvet - 스포츠토토",
   description: "체육진흥투표권 인터넷발매",
 };
 
